@@ -1,1 +1,1 @@
-web: gunicorn hackernews.wsgi --log-file -
+web: gunicorn airbnb.wsgi --log-file -
