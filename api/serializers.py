@@ -5,5 +5,7 @@ class AirbnbSerializer(serializers.ModelSerializer):
     class Meta:
         model = Airbnb
         fields = [
-            'summary', 
+            'bedrooms',
+            'bathrooms',
+            'zipcode',
         ]
