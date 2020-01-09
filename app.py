@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 flask app implementation
 """
 
-model = pickle.load(open('model4.pkl','rb'))
+model = pickle.load(open('final.pkl','rb'))
 
 app = Flask(__name__)
 
