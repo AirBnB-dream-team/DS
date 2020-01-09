@@ -1,9 +1,13 @@
 import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
+from tensorflow.keras.models import load_model
 
-# load model
-model = pickle.load(open('model2.pkl','rb'))
+"""
+flask app implementation
+"""
+
+model = pickle.load(open('final.pkl','rb'))
 
 # app
 app = Flask(__name__)
