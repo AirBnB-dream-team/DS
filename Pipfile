@@ -7,29 +7,6 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
-<<<<<<< HEAD
-django = "*"
-pandas = "*"
-djangorestframework = "*"
-markdown = "*"
-django-filter = "*"
-spacy = "*"
-requests = "*"
-html2text = "*"
-gensim = "*"
-pyldavis = "*"
-textblob = "*"
-nltk = "*"
-psycopg2-binary = "*"
-faster-than-requests = "*"
-django-pandas = "*"
-gunicorn = "*"
-dj-database-url = "*"
-whitenoise = "*"
-python-dotenv = "*"
-simplejson = "*"
-rest-pandas = "*"
-=======
 flask = "*"
 scikit-learn = "*"
 pandas = "*"
@@ -38,7 +15,6 @@ jupyterlab = "*"
 requests = "*"
 gunicorn = "*"
 plotly = "*"
->>>>>>> 9266777a42563978e36f2acbff688ba47e542662
 
 [requires]
 python_version = "3.7"
