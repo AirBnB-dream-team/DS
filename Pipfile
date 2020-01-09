@@ -16,7 +16,6 @@ requests = "*"
 gunicorn = "*"
 plotly = "*"
 category-encoders = "*"
-tensorflow = "*"
 
 [requires]
 python_version = "3.7"
