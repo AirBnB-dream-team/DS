@@ -1,0 +1,29 @@
+import pandas as pd
+from flask import Flask, jsonify, request
+import pickle
+from tensorflow.keras.models import load_model
+
+"""
+flask app implementation
+"""
+
+model = pickle.load(open('model4.pkl','rb'))
+
+app = Flask(__name__)
+
+@app.route('/', methods=['POST'])
+
+def predict():
+    data = request.get_json(force=True)
+
+    data.update((x, [y]) for x, y in data.items())
+    data_df = pd.DataFrame.from_dict(data)
+
+    result = model.predict(data_df)
+
+    output = {'results': int(result[0])}
+
+    return jsonify(results=output)
+
+if __name__ == '__main__':
+    app.run(port = 5000, debug=True)
