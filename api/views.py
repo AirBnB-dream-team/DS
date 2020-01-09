@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import JsonResponse
 # Create your views here.
 from django.shortcuts import render
 from api.serializers import AirbnbSerializer
@@ -9,18 +9,15 @@ from rest_framework import serializers, viewsets
 from rest_framework import generics
 
 
-# Create your views here.
+# Create your views here
 
-class APIView(TemplateView):
-    template_name = "home.html"
-
-class APIListView(ListView):
-    model = Airbnb
-
-class AirbnbList(generics.ListCreateAPIView):
-    queryset = Airbnb.objects.all()
-    serializer_class = AirbnbSerializer
-
-class AirbnbDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Airbnb.objects.all()
-    serializer_class = AirbnbSerializer
+"""
+TODO
+I need to return something in post reposne. 
+"""
+def post(request):
+    if request.method == POST:
+        data = {
+            'here' : 'there'
+        }
+    return JsonResponse(data, safe=True)

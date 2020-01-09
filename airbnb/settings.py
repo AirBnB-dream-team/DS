@@ -13,7 +13,7 @@ SECRET_KEY = 'nr64-&0@p&xaynlh59@&u$#2wujigih*5$x&y%o!=8k%c!qyq1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saveonairbnb.herokuapp.com']
+ALLOWED_HOSTS = ['saveonairbnb.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

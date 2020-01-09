@@ -7,6 +7,7 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
+<<<<<<< HEAD
 django = "*"
 pandas = "*"
 djangorestframework = "*"
@@ -28,6 +29,16 @@ whitenoise = "*"
 python-dotenv = "*"
 simplejson = "*"
 rest-pandas = "*"
+=======
+flask = "*"
+scikit-learn = "*"
+pandas = "*"
+matplotlib = "*"
+jupyterlab = "*"
+requests = "*"
+gunicorn = "*"
+plotly = "*"
+>>>>>>> 9266777a42563978e36f2acbff688ba47e542662
 
 [requires]
 python_version = "3.7"

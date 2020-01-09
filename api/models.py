@@ -6,3 +6,4 @@ class Airbnb(models.Model):
     zipcode = models.TextField(default='')
     bathrooms = models.TextField(default='')
     bedrooms = models.TextField(default='')
+    optimal = models.IntegerField(default=0)

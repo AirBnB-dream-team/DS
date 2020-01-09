@@ -4,18 +4,15 @@
 
 {% for object in object_list  %}
 <!-- Card -->
-
-
-
     <ul>
       <!-- Currently displaying only fields requested: by, id, text -->
       <!-- Title -->
-      <h4 class="card-title"><strong>{{ object.host_name }}</strong></h4>
+      <h4 class="card-title"><strong>{{ object.bedrooms }}</strong></h4>
       <!-- Subtitle -->
       <!-- <h6 class="font-weight-bold indigo-text py-2">Parent:{{ object.parent }} <br> Time:{{ object.time }} </h6> -->
-      <h6 class="font-weight-bold indigo-text py2-">Daily Price:{{ object.price }}</h6>
+      <h6 class="font-weight-bold indigo-text py2-">Daily Price:{{ object.bathrooms }}</h6>
       <!-- Text -->
-      <p class="card-text">{{ object.summary }}</p>
+      <p class="card-text">{{ object.zipcode }}</p>
 
     </ul>
 
