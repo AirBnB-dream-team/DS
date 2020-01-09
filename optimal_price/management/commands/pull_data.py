@@ -80,39 +80,50 @@ class Command(BaseCommand):
             '78702', '78729', '78704', '78748', '78705', '78759', '78741',
             '78703', '78757', '78749', '78727', '78731', '78758', '78744',
             '78751', '78722', '78733', '78725', '78701', '78721', '78723',
-            '78752', 'missing', '78732', '78746', '78754', '78728', '78737',
+            '78752', '0', '78732', '78746', '78754', '78728', '78737',
             '78745', '78730', '78724', '78747', '78753', '78735', '78756',
             '78734', '78739', '78738', '78726', '78717', '78736', '78750',
             '78652', '78620', '78712', '78742', '78669', '78681', '78719',
             '78767', '78660', '78619', '78613', '78653'
         ]
 
+        res = 'results'
         url = 'https://saveonairbnb.herokuapp.com'
 
-        for i in range(1, 70000):
+        for i in range(1, 800):
+
+            bedrooms = randint(1, 8)
+            bathrooms = randint(1, 8)
+            minimum_nights = randint(1,8)
+            zipcode = choice(zips)
+            host_neighbourhood = choice(hoods)
+            property_type =  choice(props)
+            room_type =  choice(rooms)
+            
             data = {  
 
-                'bedrooms' : randint(1, 8), 
-                'bathrooms' : randint(1, 8), 
-                'minimum_nights' : randint(1,8), 
-                'zipcode': choice(zips), 
-                'host_neighbourhood' : choice(hoods),
-                'property_type' : choice(props),
-                'room_type' : choice(rooms)
+                'bedrooms' : bedrooms, 
+                'bathrooms' : bathrooms, 
+                'minimum_nights' : minimum_nights, 
+                'zipcode': zipcode, 
+                'host_neighbourhood' : host_neighbourhood,
+                'property_type' : property_type,
+                'room_type' : room_type
             }
-            # data = json.dumps(data)
-            print(data['bedrooms'])
+
+            data = json.dumps(data)
             pred = requests.post(url, data)
-            print(f'On the {i} Insert')
+            # print(f'Prediction On Insert {i} : { abs( pred.json()[res][res] ) }')
 
             User.objects.create(
-                bedrooms = data['bedrooms'],
-                bathrooms = data['bathrooms'],
-                minimum_nights = data['minimum_nights'],
-                zipcode = data['zipcode'],
-                host_neighbourhood = data['host_neighbourhood'],
-                property_type = data['property_type'],
-                room_type = data['room_type'],
-                optimal_price = pred.json()['results']['results']
+                bedrooms = bedrooms,
+                bathrooms = bathrooms,
+                minimum_nights = minimum_nights,
+                zipcode = zipcode,
+                host_neighbourhood = host_neighbourhood,
+                property_type = property_type,
+                room_type = room_type,
+                optimal_price = abs( pred.json()[res][res] )
 
             )
+        print('See ya space cowboy')
