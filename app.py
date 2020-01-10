@@ -2,22 +2,18 @@ import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
 
-
-"""
-flask app implementation
-"""
-
-model = pickle.load(open('final.pkl','rb'))
+# load model
+model = pickle.load(open('model2.pkl','rb'))
 
 # app
 app = Flask(__name__)
 
 # routes
-@app.route('/', methods = ['POST'])
+@app.route('/', methods=['POST'])
 
 def predict():
     # get data
-    data = request.get_json(force = True)
+    data = request.get_json(force=True)
 
     # convert data into dataframe
     data.update((x, [y]) for x, y in data.items())
@@ -30,7 +26,7 @@ def predict():
     output = {'results': int(result[0])}
 
     # return data
-    return jsonify(results = output)
+    return jsonify(results=output)
 
 if __name__ == '__main__':
-    app.run(port = 5000, debug = True)
+    app.run(port = 5000, debug=True)
